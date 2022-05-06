@@ -2,7 +2,7 @@ import time
 import random
 import threading
 import tkinter as tk
-from tkinter import LEFT, messagebox
+from tkinter import LEFT, SUNKEN, messagebox
 import tkinter.ttk as ttk
 import sys
 
@@ -81,31 +81,28 @@ def main():
 root = tk.Tk()
 root.title("Filosofos")
 root.geometry("900x700")
+root.resizable(0,0)
+
 
 #Buttons
-#create a button to start the game
+#create a button to start the game with grid
 start_button = ttk.Button(root, text="Start", command=main)
-start_button.pack()
 #align the button to the bottom of the window
 start_button.place(relx=0.3, rely=0.95, anchor=tk.CENTER)
 #create a button to pause the game
 pause_button = ttk.Button(root, text="Pausar", command=root.quit)
-pause_button.pack()
 #align the button to the bottom of the window
 pause_button.place(relx=0.5, rely=0.95, anchor=tk.CENTER)
 #create a button to reset the game
 reset_button = ttk.Button(root, text="Reset", command=root.quit)
-reset_button.pack()
 #align the button to the bottom of the window
 reset_button.place(relx=0.7, rely=0.95, anchor=tk.CENTER)
 #create a button to quit the game
 quit_button = ttk.Button(root, text="Quit", command=root.quit)
-quit_button.pack()
 #align the button to the bottom of the window
 quit_button.place(relx=0.9, rely=0.9, anchor=tk.CENTER)
 #create a button of the credits
 credits_button = ttk.Button(root, text="Créditos", command=root.quit)
-credits_button.pack()
 #align the button to the bottom of the window
 credits_button.place(relx=0.9, rely=0.95, anchor=tk.CENTER)
 
@@ -113,47 +110,71 @@ checkbutton_var = tk.IntVar()
 
 #create a checkbutton with a ticked state
 checkbutton = ttk.Checkbutton(root, text="Crear un log", variable=checkbutton_var)
-checkbutton.pack()
 #align the button to the bottom of the window
 checkbutton.place(relx=0.1, rely=0.95, anchor=tk.CENTER)
 
+
+
 #create a label in bold to show the colours of the squares
 label = ttk.Label(root, text="Código de colores:", font=("Helvetica", 17, "bold"))
-label.pack()
-#align the label to the right of the window
-label.place(relx=0.8, rely=0.1, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Filósofo entra a comer")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.15, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Filósofo tiene un tenedor")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.20, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Filósofo está comiendo")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.25, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Filósofo está pensando")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.30, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Tenedor ocupado")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.35, anchor=tk.CENTER)
-#create a label of the colours
-label2 = ttk.Label(root, text="Tenedor libre")
-label2.pack()
-#align the label to the right of the window
-label2.place(relx=0.85, rely=0.40, anchor=tk.CENTER)
 
+#create a text box to write the log
+text_box = tk.Text(root, width=20, height=3)
 
+#align the text box to the bottom of the window
+text_box.place(relx=0.3, rely=0.1, anchor=tk.CENTER)
+#write in the text box
+text_box.insert(tk.END, "Filósofo 1")
+
+#Frames
+#create a frame to hold the buttons
+frame=ttk.Frame(root,relief=SUNKEN,borderwidth=5)
+frame.grid(column=0,row=2,columnspan=4,sticky=('N','S','E','W'))
+frame.columnconfigure(0, weight=1)
+frame.columnconfigure(1, weight=1)
+frame.columnconfigure(2, weight=1)
+frame.columnconfigure(3, weight=1)
+frame.rowconfigure(0, weight=1)
+frame.rowconfigure(1, weight=1)
+frame.rowconfigure(2, weight=1)
+frame.rowconfigure(3, weight=1)
+
+#create a frame on the first row that is 300 pixels wide and 400 pixels high
+frame1=ttk.Frame(root,width=500,height=260,relief=SUNKEN,borderwidth=5)
+frame1.grid(column=0,row=0,sticky=('N','S','E','W'))
+
+#create another frame on the second row that is 400 pixels wide and 360 pixels high
+frame2=ttk.Frame(root,width=500,height=260,relief=SUNKEN,borderwidth=5)
+frame2.grid(column=0,row=1,sticky=('N','S','E','W'))
+
+#create a frame on the second column and the first row that is 100 pixels wide and 260 pixels high
+frame3=ttk.Frame(root,width=300,height=260,relief=SUNKEN,borderwidth=5)
+frame3.grid(column=1,row=0,sticky=('N','S','E','W'))
+frame4=ttk.Frame(root,width=300,height=260,relief=SUNKEN,borderwidth=5)
+frame4.grid(column=1,row=1,sticky=('N','S','E','W'))
+
+frame1.columnconfigure(0, weight=1)
+frame1.columnconfigure(1, weight=1)
+frame1.columnconfigure(2, weight=1)
+frame1.columnconfigure(3, weight=1)
+frame1.rowconfigure(0, weight=1)
+frame1.rowconfigure(1, weight=1)
+frame1.rowconfigure(2, weight=1)
+frame1.rowconfigure(3, weight=1)
+
+#add a text on the frame on the first row and second column
+text1=ttk.Label(frame3,text="Filósofo entra a comer",font=("Arial",10))
+text1.grid(column=0,row=0,sticky=('N','S','E','W'))
+text2=ttk.Label(frame3,text="Filosofo tiene un tenedor",font=("Arial",10))
+text2.grid(column=0,row=1,sticky=('N','S','E','W'))
+text3=ttk.Label(frame3,text="Filósofo esta comiendo",font=("Arial",10))
+text3.grid(column=0,row=2,sticky=('N','S','E','W'))
+text4=ttk.Label(frame3,text="Filósofo esta pensando",font=("Arial",10))
+text4.grid(column=0,row=3,sticky=('N','S','E','W'))
+text5=ttk.Label(frame3,text="Tenedor ocupado",font=("Arial",10))
+text5.grid(column=0,row=4,sticky=('N','S','E','W'))
+text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",10))
+text6.grid(column=0,row=5,sticky=('N','S','E','W'))
 
 
 
