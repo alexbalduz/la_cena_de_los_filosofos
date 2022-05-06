@@ -1,6 +1,9 @@
 import time
 import random
 import threading
+import tkinter as tk
+from tkinter import LEFT, messagebox
+import tkinter.ttk as ttk
 
 N = 5
 TIEMPO_TOTAL = 3
@@ -72,6 +75,18 @@ def main():
 
     for f in lista:
         f.join() #BLOQUEA HASTA QUE TERMINA EL THREAD
+
+window = tk.Tk()
+window.title("La cena de los filosofos")
+window.geometry("700x700")
+
+#create a button
+button = ttk.Button(window, text="Click Me!", command=main)
+#align button to the left bottom corner with grid
+button.grid(column=0, row=0)
+
+
+tk.mainloop()
 
 if __name__=="__main__":
     main()
