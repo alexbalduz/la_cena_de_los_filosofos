@@ -172,20 +172,28 @@ text7.grid(column=0,row=0,sticky=('N','S','E','W'))
 text8=ttk.Label(frame4,text="Filósofo 1:",font=("Arial",15))
 text8.grid(column=0,row=2,sticky=('N','S','E','W'))
 #create a text box next to text8 that will hold the number of times the philosopher 1 has eaten
-text8_1=ttk.Entry(frame4,width=5)
-text8_1.grid(column=1,row=2,sticky=('N','S','E','W'))
-
-
+text8_1=ttk.Entry(frame4,width=14)
+text8_1.place(x=80,y=22)
 
 text9=ttk.Label(frame4,text="Filosofo 2:",font=("Arial",15))
 text9.grid(column=0,row=3,sticky=('N','S','E','W'))
+text9_1=ttk.Entry(frame4,width=14)
+text9_1.place(x=80,y=44)
+
 text10=ttk.Label(frame4,text="Filósofo 3:",font=("Arial",15))
 text10.grid(column=0,row=4,sticky=('N','S','E','W'))
+text10_1=ttk.Entry(frame4,width=14)
+text10_1.place(x=80,y=66)
+
 text11=ttk.Label(frame4,text="Filósofo 4:",font=("Arial",15))
 text11.grid(column=0,row=5,sticky=('N','S','E','W'))
+text11_1=ttk.Entry(frame4,width=14)
+text11_1.place(x=80,y=88)
+
 text12=ttk.Label(frame4,text="Filósofo 5:",font=("Arial",15))
 text12.grid(column=0,row=6,sticky=('N','S','E','W'))
-
+text12_1=ttk.Entry(frame4,width=14)
+text12_1.place(x=80,y=108)
 
 
 
