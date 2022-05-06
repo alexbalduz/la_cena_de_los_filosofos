@@ -113,11 +113,6 @@ checkbutton = ttk.Checkbutton(root, text="Crear un log", variable=checkbutton_va
 #align the button to the bottom of the window
 checkbutton.place(relx=0.1, rely=0.95, anchor=tk.CENTER)
 
-
-
-#create a label in bold to show the colours of the squares
-label = ttk.Label(root, text="Código de colores:", font=("Helvetica", 17, "bold"))
-
 #create a text box to write the log
 text_box = tk.Text(root, width=20, height=3)
 
@@ -163,18 +158,20 @@ frame1.rowconfigure(2, weight=1)
 frame1.rowconfigure(3, weight=1)
 
 #add a text on the frame on the first row and second column
-text1=ttk.Label(frame3,text="Filósofo entra a comer",font=("Arial",10))
-text1.grid(column=0,row=0,sticky=('N','S','E','W'))
-text2=ttk.Label(frame3,text="Filosofo tiene un tenedor",font=("Arial",10))
-text2.grid(column=0,row=1,sticky=('N','S','E','W'))
-text3=ttk.Label(frame3,text="Filósofo esta comiendo",font=("Arial",10))
-text3.grid(column=0,row=2,sticky=('N','S','E','W'))
-text4=ttk.Label(frame3,text="Filósofo esta pensando",font=("Arial",10))
-text4.grid(column=0,row=3,sticky=('N','S','E','W'))
-text5=ttk.Label(frame3,text="Tenedor ocupado",font=("Arial",10))
-text5.grid(column=0,row=4,sticky=('N','S','E','W'))
-text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",10))
-text6.grid(column=0,row=5,sticky=('N','S','E','W'))
+text0=ttk.Label(frame3,text="Código de colores:",font=("Arial", 17, "bold"))
+text0.grid(column=0,row=0,sticky=('N','S','E','W'))
+text1=ttk.Label(frame3,text="Filósofo entra a comer",font=("Arial",15))
+text1.grid(column=0,row=2,sticky=('N','S','E','W'))
+text2=ttk.Label(frame3,text="Filosofo tiene un tenedor",font=("Arial",15))
+text2.grid(column=0,row=3,sticky=('N','S','E','W'))
+text3=ttk.Label(frame3,text="Filósofo esta comiendo",font=("Arial",15))
+text3.grid(column=0,row=4,sticky=('N','S','E','W'))
+text4=ttk.Label(frame3,text="Filósofo esta pensando",font=("Arial",15))
+text4.grid(column=0,row=5,sticky=('N','S','E','W'))
+text5=ttk.Label(frame3,text="Tenedor ocupado",font=("Arial",15))
+text5.grid(column=0,row=6,sticky=('N','S','E','W'))
+text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",15))
+text6.grid(column=0,row=7,sticky=('N','S','E','W'))
 
 
 
