@@ -80,7 +80,7 @@ def main():
 #create a window
 root = tk.Tk()
 root.title("Filosofos")
-root.geometry("900x700")
+root.geometry("745x650")
 root.resizable(0,0)
 
 
@@ -173,6 +173,19 @@ text5.grid(column=0,row=6,sticky=('N','S','E','W'))
 text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",15))
 text6.grid(column=0,row=7,sticky=('N','S','E','W'))
 
+#add a text on the frame on the first row and second column
+text7=ttk.Label(frame4,text="Cuántas veces han comido:",font=("Arial", 17, "bold"))
+text7.grid(column=0,row=0,sticky=('N','S','E','W'))
+text8=ttk.Label(frame4,text="Filósofo 1:",font=("Arial",15))
+text8.grid(column=0,row=2,sticky=('N','S','E','W'))
+text9=ttk.Label(frame4,text="Filosofo 2:",font=("Arial",15))
+text9.grid(column=0,row=3,sticky=('N','S','E','W'))
+text10=ttk.Label(frame4,text="Filósofo 3:",font=("Arial",15))
+text10.grid(column=0,row=4,sticky=('N','S','E','W'))
+text11=ttk.Label(frame4,text="Filósofo 4:",font=("Arial",15))
+text11.grid(column=0,row=5,sticky=('N','S','E','W'))
+text12=ttk.Label(frame4,text="Filósofo 5:",font=("Arial",15))
+text12.grid(column=0,row=6,sticky=('N','S','E','W'))
 
 
 
