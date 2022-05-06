@@ -79,7 +79,7 @@ def main():
 
 #create a window
 root = tk.Tk()
-root.title("Filosofos")
+root.title("La cena de los filósofos")
 root.geometry("745x650")
 root.resizable(0,0)
 
@@ -112,14 +112,6 @@ checkbutton_var = tk.IntVar()
 checkbutton = ttk.Checkbutton(root, text="Crear un log", variable=checkbutton_var)
 #align the button to the bottom of the window
 checkbutton.place(relx=0.1, rely=0.95, anchor=tk.CENTER)
-
-#create a text box to write the log
-text_box = tk.Text(root, width=20, height=3)
-
-#align the text box to the bottom of the window
-text_box.place(relx=0.3, rely=0.1, anchor=tk.CENTER)
-#write in the text box
-text_box.insert(tk.END, "Filósofo 1")
 
 #Frames
 #create a frame to hold the buttons
@@ -176,8 +168,15 @@ text6.grid(column=0,row=7,sticky=('N','S','E','W'))
 #add a text on the frame on the first row and second column
 text7=ttk.Label(frame4,text="Cuántas veces han comido:",font=("Arial", 17, "bold"))
 text7.grid(column=0,row=0,sticky=('N','S','E','W'))
+
 text8=ttk.Label(frame4,text="Filósofo 1:",font=("Arial",15))
 text8.grid(column=0,row=2,sticky=('N','S','E','W'))
+#create a text box next to text8 that will hold the number of times the philosopher 1 has eaten
+text8_1=ttk.Entry(frame4,width=5)
+text8_1.grid(column=1,row=2,sticky=('N','S','E','W'))
+
+
+
 text9=ttk.Label(frame4,text="Filosofo 2:",font=("Arial",15))
 text9.grid(column=0,row=3,sticky=('N','S','E','W'))
 text10=ttk.Label(frame4,text="Filósofo 3:",font=("Arial",15))
