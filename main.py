@@ -4,6 +4,7 @@ import threading
 import tkinter as tk
 from tkinter import LEFT, messagebox
 import tkinter.ttk as ttk
+import sys
 
 N = 5
 TIEMPO_TOTAL = 3
@@ -79,7 +80,7 @@ def main():
 #create a window
 root = tk.Tk()
 root.title("Filosofos")
-root.geometry("700x700")
+root.geometry("900x700")
 
 #Buttons
 #create a button to start the game
@@ -108,27 +109,65 @@ credits_button.pack()
 #align the button to the bottom of the window
 credits_button.place(relx=0.9, rely=0.95, anchor=tk.CENTER)
 
+checkbutton_var = tk.IntVar()
+
+#create a checkbutton with a ticked state
+checkbutton = ttk.Checkbutton(root, text="Crear un log", variable=checkbutton_var)
+checkbutton.pack()
+#align the button to the bottom of the window
+checkbutton.place(relx=0.1, rely=0.95, anchor=tk.CENTER)
+
+#create a label in bold to show the colours of the squares
+label = ttk.Label(root, text="Código de colores:", font=("Helvetica", 17, "bold"))
+label.pack()
+#align the label to the right of the window
+label.place(relx=0.8, rely=0.1, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Filósofo entra a comer")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.15, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Filósofo tiene un tenedor")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.20, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Filósofo está comiendo")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.25, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Filósofo está pensando")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.30, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Tenedor ocupado")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.35, anchor=tk.CENTER)
+#create a label of the colours
+label2 = ttk.Label(root, text="Tenedor libre")
+label2.pack()
+#align the label to the right of the window
+label2.place(relx=0.85, rely=0.40, anchor=tk.CENTER)
+
+
+
+
+
+
+
 
 
 
 #stop the mainloop when the window is closed
 root.mainloop()
-#close the window
-root.destroy()
+#close the program
+sys.exit()
 
 
-
-
-
-
-
-
-
-
-
-
-
-tk.mainloop()
 
 if __name__=="__main__":
     main()
