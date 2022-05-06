@@ -76,14 +76,56 @@ def main():
     for f in lista:
         f.join() #BLOQUEA HASTA QUE TERMINA EL THREAD
 
-window = tk.Tk()
-window.title("La cena de los filosofos")
-window.geometry("700x700")
+#create a window
+root = tk.Tk()
+root.title("Filosofos")
+root.geometry("700x700")
 
-#create a button
-button = ttk.Button(window, text="Click Me!", command=main)
-#align button to the left bottom corner with grid
-button.grid(column=0, row=0)
+#Buttons
+#create a button to start the game
+start_button = ttk.Button(root, text="Start", command=main)
+start_button.pack()
+#align the button to the bottom of the window
+start_button.place(relx=0.3, rely=0.95, anchor=tk.CENTER)
+#create a button to pause the game
+pause_button = ttk.Button(root, text="Pausar", command=root.quit)
+pause_button.pack()
+#align the button to the bottom of the window
+pause_button.place(relx=0.5, rely=0.95, anchor=tk.CENTER)
+#create a button to reset the game
+reset_button = ttk.Button(root, text="Reset", command=root.quit)
+reset_button.pack()
+#align the button to the bottom of the window
+reset_button.place(relx=0.7, rely=0.95, anchor=tk.CENTER)
+#create a button to quit the game
+quit_button = ttk.Button(root, text="Quit", command=root.quit)
+quit_button.pack()
+#align the button to the bottom of the window
+quit_button.place(relx=0.9, rely=0.9, anchor=tk.CENTER)
+#create a button of the credits
+credits_button = ttk.Button(root, text="Créditos", command=root.quit)
+credits_button.pack()
+#align the button to the bottom of the window
+credits_button.place(relx=0.9, rely=0.95, anchor=tk.CENTER)
+
+
+
+
+#stop the mainloop when the window is closed
+root.mainloop()
+#close the window
+root.destroy()
+
+
+
+
+
+
+
+
+
+
+
 
 
 tk.mainloop()
