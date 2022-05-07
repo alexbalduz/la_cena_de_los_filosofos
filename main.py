@@ -2,9 +2,11 @@ import time
 import random
 import threading
 import tkinter as tk
-from tkinter import LEFT, SUNKEN, messagebox
+from tkinter import LEFT, SUNKEN, Canvas, messagebox, VERTICAL, RIGHT
 import tkinter.ttk as ttk
 import sys
+
+from matplotlib.ft2font import HORIZONTAL
 
 N = 5
 TIEMPO_TOTAL = 3
@@ -76,17 +78,17 @@ def main():
 
     for f in lista:
         f.join() #BLOQUEA HASTA QUE TERMINA EL THREAD
+    
 
 #create a window
 root = tk.Tk()
 root.title("La cena de los filósofos")
 root.geometry("745x650")
-root.resizable(0,0)
 
 
 #Buttons
 #create a button to start the game with grid
-start_button = ttk.Button(root, text="Start", command=main)
+start_button = ttk.Button(root, text="Iniciar", command=main)
 #align the button to the bottom of the window
 start_button.place(relx=0.3, rely=0.95, anchor=tk.CENTER)
 #create a button to pause the game
@@ -107,7 +109,6 @@ credits_button = ttk.Button(root, text="Créditos", command=root.quit)
 credits_button.place(relx=0.9, rely=0.95, anchor=tk.CENTER)
 
 checkbutton_var = tk.IntVar()
-
 #create a checkbutton with a ticked state
 checkbutton = ttk.Checkbutton(root, text="Crear un log", variable=checkbutton_var)
 #align the button to the bottom of the window
@@ -140,30 +141,47 @@ frame3.grid(column=1,row=0,sticky=('N','S','E','W'))
 frame4=ttk.Frame(root,width=300,height=260,relief=SUNKEN,borderwidth=5)
 frame4.grid(column=1,row=1,sticky=('N','S','E','W'))
 
-frame1.columnconfigure(0, weight=1)
-frame1.columnconfigure(1, weight=1)
-frame1.columnconfigure(2, weight=1)
-frame1.columnconfigure(3, weight=1)
-frame1.rowconfigure(0, weight=1)
-frame1.rowconfigure(1, weight=1)
-frame1.rowconfigure(2, weight=1)
-frame1.rowconfigure(3, weight=1)
+
 
 #add a text on the frame on the first row and second column
 text0=ttk.Label(frame3,text="Código de colores:",font=("Arial", 17, "bold"))
 text0.grid(column=0,row=0,sticky=('N','S','E','W'))
-text1=ttk.Label(frame3,text="Filósofo entra a comer",font=("Arial",15))
-text1.grid(column=0,row=2,sticky=('N','S','E','W'))
+
+
+text1=tk.Label(frame3,text="Filósofo entra a comer",font=("Arial",15), justify= RIGHT)
+text1.grid(column=0,row=2,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color1 = tk.Label(frame3, background="black", height = 1, width = 1)
+color1.place(relx=0.05, rely=0.17, anchor=tk.CENTER)
+color1.config(state="disable")
+
 text2=ttk.Label(frame3,text="Filosofo tiene un tenedor",font=("Arial",15))
-text2.grid(column=0,row=3,sticky=('N','S','E','W'))
+text2.grid(column=0,row=3,sticky=('N','S','E','W'),padx = 20, pady = 10)
+color2 = tk.Label(frame3, background="black", height = 1, width = 1)
+color2.place(relx=0.05, rely=0.32, anchor=tk.CENTER)
+color2.config(state="disable")
+
 text3=ttk.Label(frame3,text="Filósofo esta comiendo",font=("Arial",15))
-text3.grid(column=0,row=4,sticky=('N','S','E','W'))
+text3.grid(column=0,row=4,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color3 = tk.Label(frame3, background="black", height = 1, width = 1)
+color3.place(relx=0.05, rely=0.48, anchor=tk.CENTER)
+color3.config(state="disable")
+
 text4=ttk.Label(frame3,text="Filósofo esta pensando",font=("Arial",15))
-text4.grid(column=0,row=5,sticky=('N','S','E','W'))
+text4.grid(column=0,row=5,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color4 = tk.Label(frame3, background="black", height = 1, width = 1)
+color4.place(relx=0.05, rely=0.62, anchor=tk.CENTER)
+color4.config(state="disable")
+
 text5=ttk.Label(frame3,text="Tenedor ocupado",font=("Arial",15))
-text5.grid(column=0,row=6,sticky=('N','S','E','W'))
+text5.grid(column=0,row=6,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color5 = tk.Label(frame3, background="black", height = 1, width = 1)
+color5.place(relx=0.05, rely=0.77, anchor=tk.CENTER)
+color5.config(state="disable")
+
 text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",15))
-text6.grid(column=0,row=7,sticky=('N','S','E','W'))
+text6.grid(column=0,row=7,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color6 = tk.Label(frame3, background="black", height = 1, width = 1)
+color6.place(relx=0.05, rely=0.93, anchor=tk.CENTER)
 
 #add a text on the frame on the first row and second column
 text7=ttk.Label(frame4,text="Cuántas veces han comido:",font=("Arial", 17, "bold"))
@@ -195,10 +213,30 @@ text12.grid(column=0,row=6,sticky=('N','S','E','W'))
 text12_1=ttk.Entry(frame4,width=14)
 text12_1.place(x=80,y=108)
 
+#create a text with grid
+fil1 = tk.Label(frame1, text="Filósofo 1", background="blue", height = 2, width = 7)
+fil1.place(x=190,y=25)
+fil1.config(state="disable")
 
+#create a text with grid
+fil2 = tk.Label(frame1, text="Filósofo 2", background="blue", height = 2, width = 7)
+fil2.place(x=100,y=100)
+fil2.config(state="disable")
 
+#create a text with grid
+fil3 = tk.Label(frame1, text="Filósofo 3", background="blue", height = 2, width = 7)
+fil3.place(x=290,y=80)
+fil3.config(state="disable")
 
+#create a text with grid
+fil4 = tk.Label(frame1, text="Filósofo 4", background="blue", height = 2, width = 7)
+fil4.place(x=120,y=180)
+fil4.config(state="disable")
 
+#create a text with grid
+fil5 = tk.Label(frame1, text="Filósofo 5", background="blue", height = 2, width = 7)
+fil5.place(x=260,y=160)
+fil5.config(state="disable")
 
 #stop the mainloop when the window is closed
 root.mainloop()
