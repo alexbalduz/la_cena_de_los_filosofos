@@ -68,6 +68,7 @@ class filosofo(threading.Thread):
             self.comer() #COME
             self.soltar() #SUELTA LOS TENEDORES
 
+
 def main():
     lista=[]
     for i in range(N):
@@ -78,7 +79,7 @@ def main():
 
     for f in lista:
         f.join() #BLOQUEA HASTA QUE TERMINA EL THREAD
-    
+
 
 #create a window
 root = tk.Tk()
@@ -148,39 +149,39 @@ text0=ttk.Label(frame3,text="Código de colores:",font=("Arial", 17, "bold"))
 text0.grid(column=0,row=0,sticky=('N','S','E','W'))
 
 
-text1=tk.Label(frame3,text="Filósofo entra a comer",font=("Arial",15), justify= RIGHT)
+text1=ttk.Label(frame3,text="Filósofo entra a comer",font=("Arial",15))
 text1.grid(column=0,row=2,sticky=('N','S','E','W'), padx = 20, pady = 10)
-color1 = tk.Label(frame3, background="black", height = 1, width = 1)
+color1 = tk.Label(frame3, background="pink", height = 1, width = 1)
 color1.place(relx=0.05, rely=0.17, anchor=tk.CENTER)
 color1.config(state="disable")
 
 text2=ttk.Label(frame3,text="Filosofo tiene un tenedor",font=("Arial",15))
-text2.grid(column=0,row=3,sticky=('N','S','E','W'),padx = 20, pady = 10)
-color2 = tk.Label(frame3, background="black", height = 1, width = 1)
+text2.grid(column=0,row=3,sticky=('N','S','E','W'), padx = 20, pady = 10)
+color2 = tk.Label(frame3, background="orange", height = 1, width = 1)
 color2.place(relx=0.05, rely=0.32, anchor=tk.CENTER)
 color2.config(state="disable")
 
 text3=ttk.Label(frame3,text="Filósofo esta comiendo",font=("Arial",15))
 text3.grid(column=0,row=4,sticky=('N','S','E','W'), padx = 20, pady = 10)
-color3 = tk.Label(frame3, background="black", height = 1, width = 1)
+color3 = tk.Label(frame3, background="blue", height = 1, width = 1)
 color3.place(relx=0.05, rely=0.48, anchor=tk.CENTER)
 color3.config(state="disable")
 
 text4=ttk.Label(frame3,text="Filósofo esta pensando",font=("Arial",15))
 text4.grid(column=0,row=5,sticky=('N','S','E','W'), padx = 20, pady = 10)
-color4 = tk.Label(frame3, background="black", height = 1, width = 1)
+color4 = tk.Label(frame3, background="grey", height = 1, width = 1)
 color4.place(relx=0.05, rely=0.62, anchor=tk.CENTER)
 color4.config(state="disable")
 
 text5=ttk.Label(frame3,text="Tenedor ocupado",font=("Arial",15))
 text5.grid(column=0,row=6,sticky=('N','S','E','W'), padx = 20, pady = 10)
-color5 = tk.Label(frame3, background="black", height = 1, width = 1)
+color5 = tk.Label(frame3, background="red", height = 1, width = 1)
 color5.place(relx=0.05, rely=0.77, anchor=tk.CENTER)
 color5.config(state="disable")
 
 text6=ttk.Label(frame3,text="Tenedor libre",font=("Arial",15))
 text6.grid(column=0,row=7,sticky=('N','S','E','W'), padx = 20, pady = 10)
-color6 = tk.Label(frame3, background="black", height = 1, width = 1)
+color6 = tk.Label(frame3, background="white", height = 1, width = 1)
 color6.place(relx=0.05, rely=0.93, anchor=tk.CENTER)
 
 #add a text on the frame on the first row and second column
@@ -214,30 +215,47 @@ text12_1=ttk.Entry(frame4,width=14)
 text12_1.place(x=80,y=108)
 
 #create a text with grid
-fil1 = tk.Label(frame1, text="Filósofo 1", background="blue", height = 2, width = 7)
+fil1 = tk.Label(frame1, text="Filósofo 1", background="white", height = 2, width = 7)
 fil1.place(x=190,y=25)
 fil1.config(state="disable")
 
 #create a text with grid
-fil2 = tk.Label(frame1, text="Filósofo 2", background="blue", height = 2, width = 7)
+fil2 = tk.Label(frame1, text="Filósofo 5", background="white", height = 2, width = 7)
 fil2.place(x=100,y=100)
 fil2.config(state="disable")
 
 #create a text with grid
-fil3 = tk.Label(frame1, text="Filósofo 3", background="blue", height = 2, width = 7)
+fil3 = tk.Label(frame1, text="Filósofo 2", background="white", height = 2, width = 7)
 fil3.place(x=290,y=80)
 fil3.config(state="disable")
 
 #create a text with grid
-fil4 = tk.Label(frame1, text="Filósofo 4", background="blue", height = 2, width = 7)
+fil4 = tk.Label(frame1, text="Filósofo 4", background="white", height = 2, width = 7)
 fil4.place(x=120,y=180)
 fil4.config(state="disable")
 
 #create a text with grid
-fil5 = tk.Label(frame1, text="Filósofo 5", background="blue", height = 2, width = 7)
+fil5 = tk.Label(frame1, text="Filósofo 3", background="white", height = 2, width = 7)
 fil5.place(x=260,y=160)
 fil5.config(state="disable")
 
+
+def change_color(i=0):
+    if i < 4:
+        colors = ('pink', 'orange', 'blue', 'grey')
+        fil1.config(bg=colors[i])
+        fil1.after(500, change_color, i+1)
+        fil2.config(bg=colors[i])
+        fil2.after(500, change_color, i+1)
+        fil3.config(bg=colors[i])
+        fil3.after(500, change_color, i+1)
+        fil4.config(bg=colors[i])
+        fil4.after(500, change_color, i+1)
+        fil5.config(bg=colors[i])
+        fil5.after(500, change_color, i+1)
+
+
+change_color()
 #stop the mainloop when the window is closed
 root.mainloop()
 #close the program
